@@ -63,17 +63,18 @@ class ExceptionsTest {
 	@Test
 	public void testReverseString() {
 		try {
-			ExceptionMethods.reverseString("cat");
+			assertEquals("tac",ExceptionMethods.reverseString("cat"));
 		} catch (IllegalStateException y){
 			y.printStackTrace();
 		}
 		try {
-			ExceptionMethods.reverseString("");
+			assertEquals("",ExceptionMethods.reverseString(""));
+			//Reason that this line will fail and we could still run successfully is we got our exception//
 		} catch (IllegalStateException y){
 			y.printStackTrace();
 		}
 		try {
-			ExceptionMethods.reverseString("potato");
+			assertEquals("otatop",ExceptionMethods.reverseString("potato"));
 		} catch (IllegalStateException y){
 			y.printStackTrace();
 		}
