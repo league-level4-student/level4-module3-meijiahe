@@ -31,12 +31,30 @@ class ExceptionsTest {
 	
 	//3. Complete the JUnit test method to test the divide method.
 	@Test
-	public static void testDivideByZeroException() {
-		ExceptionMethods.divide(6.1,0.0);
+	public void testDivideByZeroException() { 
+		//Using one try for each test to ensure every test would be able to run through//
+		//print Stack Trace is to show our test are running normal or not//
+	
+		try {
+	//	ExceptionMethods.divide(4.4,1.1); this line only check whether our method run or not//
+	//the assertEqual can check whether the returned value is the one that we are expecting for, gettting useful detail info//
+			assertEquals(4,ExceptionMethods.divide(4.4,1.1));
+		} catch (IllegalArgumentException x){
+			x.printStackTrace();
+		}
+		try {
+			assertEquals(0,ExceptionMethods.divide(6.1,0.0));
+		} catch (IllegalArgumentException x){
+			x.printStackTrace();
+		}
+		try {
+			assertEquals(3,ExceptionMethods.divide(6.3,2.1));
+		} catch (IllegalArgumentException x){
+			x.printStackTrace();
+		}
+		
 	}
-	 public static void main(String[] args) {
-		 testDivideByZeroException();
-	}
+	 
 	//4. In the ExceptionMethods class, write a method called reverseString that takes a
 	//   String and returns the reverse of that String. It should throw an IllegalStateException
 	//   if the String passed in is empty
@@ -44,6 +62,21 @@ class ExceptionsTest {
 	//5. Complete the JUnit test method to test the reverseStringMethod.
 	@Test
 	public void testReverseString() {
+		try {
+			ExceptionMethods.reverseString("cat");
+		} catch (IllegalStateException y){
+			y.printStackTrace();
+		}
+		try {
+			ExceptionMethods.reverseString("");
+		} catch (IllegalStateException y){
+			y.printStackTrace();
+		}
+		try {
+			ExceptionMethods.reverseString("potato");
+		} catch (IllegalStateException y){
+			y.printStackTrace();
+		}
 		
 	}
 	
